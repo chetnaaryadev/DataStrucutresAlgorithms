@@ -2,11 +2,14 @@ package Arrays;
 
 import java.util.Arrays;
 
+import static java.util.Collections.swap;
+
 public class Array1 {
 
     public static void main(String[] args) {
          int[] arr = {10,15,18,20,30};
         int[] arr1 = {10,20,20,30,30,30,40,40,40,40};
+        int[] arr2 = {10,0,18,0,30};
          int res = largestElementOfArray(arr);
          boolean isSorted = isArraySorted(arr);
         System.out.println("Index of Largest element "+ arr[res]+" of Array is "+res);
@@ -18,6 +21,10 @@ public class Array1 {
         int distinctSize = removeDuplicatesFromSortedArray(arr1);
 
         System.out.println("Distinct size of array "+Arrays.toString(arr1)+ " is : "+ distinctSize);
+
+        System.out.println("Before moving zeroes of array to the end: "+Arrays.toString(arr2));
+        moveZeroes(arr2);
+        System.out.println("After moving zeroes of array to the end: "+Arrays.toString(arr2));
         }
 
 
@@ -63,6 +70,25 @@ public class Array1 {
             }
         }
         return res;
+    }
+
+    public static void moveZeroes(int[] arr){
+        int n = arr.length;
+        int count = 0;
+        for (int i =0; i< n;i++){
+            if (arr[i] != 0) {
+                int temp = arr[i];
+                arr[i] = arr[count];
+                arr[count]= temp;
+                count++;
+            }
+        }
+    }
+
+    private static void swap(int i, int j) {
+        int temp = i;
+        i = j;
+        j= temp;
     }
 
 }
