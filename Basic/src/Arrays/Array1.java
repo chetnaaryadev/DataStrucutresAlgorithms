@@ -25,6 +25,10 @@ public class Array1 {
         System.out.println("Before moving zeroes of array to the end: "+Arrays.toString(arr2));
         moveZeroes(arr2);
         System.out.println("After moving zeroes of array to the end: "+Arrays.toString(arr2));
+
+        System.out.println("Before rotating array by 1: "+Arrays.toString(arr));
+        leftRotateBy1(arr);
+        System.out.println("After rotating array by 1"+Arrays.toString(arr));
         }
 
 
@@ -85,10 +89,14 @@ public class Array1 {
         }
     }
 
-    private static void swap(int i, int j) {
-        int temp = i;
-        i = j;
-        j= temp;
+    public static void leftRotateBy1(int[] arr){
+        int n = arr.length;
+        int temp = arr[0];
+        for (int i =1; i< n;i++){
+            arr[i-1]=arr[i];
+        }
+        arr[n-1]= temp;
     }
+
 
 }
