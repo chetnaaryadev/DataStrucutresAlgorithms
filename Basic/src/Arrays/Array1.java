@@ -2,8 +2,6 @@ package Arrays;
 
 import java.util.Arrays;
 
-import static java.util.Collections.swap;
-
 public class Array1 {
 
     public static void main(String[] args) {
