@@ -10,6 +10,7 @@ public class Array1 {
          int[] arr = {10,15,18,20,30};
         int[] arr1 = {10,20,20,30,30,30,40,40,40,40};
         int[] arr2 = {10,0,18,0,30};
+        int[] arr3 = {7,9,10,4,3,6,5,2};
          int res = largestElementOfArray(arr);
          boolean isSorted = isArraySorted(arr);
         System.out.println("Index of Largest element "+ arr[res]+" of Array is "+res);
@@ -29,6 +30,8 @@ public class Array1 {
         System.out.println("Before rotating array by 1: "+Arrays.toString(arr));
         leftRotateBy1(arr);
         System.out.println("After rotating array by 1"+Arrays.toString(arr));
+        System.out.println("Leaders of arrays are ");
+                leadersOfArray(arr3);
         }
 
 
@@ -96,6 +99,18 @@ public class Array1 {
             arr[i-1]=arr[i];
         }
         arr[n-1]= temp;
+    }
+
+    public static void leadersOfArray(int[] arr){
+        int n = arr.length;
+        int max = arr[n-1];
+        System.out.print(max+" ");
+        for (int i =n-2; i >= 0;i--){
+            if(arr[i]>max){
+                System.out.print(arr[i]+" ");
+                max = arr[i];
+            }
+        }
     }
 
 
