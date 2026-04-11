@@ -12,7 +12,7 @@ public class BinarySearch {
         System.out.println("First occurrence of number "+ a+" in array is : "+ firstOccurence(arr1,a));
         System.out.println("First occurrence of number "+ b+" in array is : "+ firstOccurenceOptimized(arr3,b));
         System.out.println("last occurrence of number "+ a+" in array is : "+ lastOccurrenceOptimized(arr1,a));
-
+        System.out.println("Count occurrence of number "+ a +" in array is : "+ countOccurrenceOptimized(arr1,a));
     }
 
     public static int bSearch(int[] arr, int num) {
@@ -78,6 +78,15 @@ public class BinarySearch {
             }
         }
         return -1;
+    }
+
+    public static int countOccurrenceOptimized(int[] arr, int num) {
+        int first = firstOccurenceOptimized(arr,num);
+        if(first == -1)
+            return 0;
+        else
+            return (lastOccurrenceOptimized(arr,num) - first +1);
+
     }
 
 }
