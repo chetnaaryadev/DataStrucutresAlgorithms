@@ -6,6 +6,7 @@ public class BinarySearch {
         int[] arr = {10, 15, 18, 20, 30};
         int[] arr1 = {10, 15, 15,18, 20, 20,20};
         int[] arr3 = {10, 10,10};
+        int[] arr4 = {0, 0, 0,1, 1, 1,1};
         int res = bSearch(arr,15);
         int a = 20, b= 10;
         System.out.println("Index of number 15 in array is : "+ res);
@@ -13,6 +14,7 @@ public class BinarySearch {
         System.out.println("First occurrence of number "+ b+" in array is : "+ firstOccurenceOptimized(arr3,b));
         System.out.println("last occurrence of number "+ a+" in array is : "+ lastOccurrenceOptimized(arr1,a));
         System.out.println("Count occurrence of number "+ a +" in array is : "+ countOccurrenceOptimized(arr1,a));
+        System.out.println("Count 1 in array is : "+ count1inSortedArray(arr4));
     }
 
     public static int bSearch(int[] arr, int num) {
@@ -87,6 +89,23 @@ public class BinarySearch {
         else
             return (lastOccurrenceOptimized(arr,num) - first +1);
 
+    }
+
+    public static int count1inSortedArray(int[] arr) {
+        int n = arr.length;
+        int high = n-1, low =0;
+        while(low<=high){
+          int  mid = (high + low)/2;
+            if(arr[mid] == 0)
+                low = mid +1;
+            else {
+                if(mid == 0 || arr[mid-1] == 0)
+                    return n-mid;
+                else
+                    high = mid - 1;
+            }
+        }
+        return -1;
     }
 
 }
