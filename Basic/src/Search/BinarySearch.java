@@ -8,13 +8,14 @@ public class BinarySearch {
         int[] arr3 = {10, 10,10};
         int[] arr4 = {0, 0, 0,1, 1, 1,1};
         int res = bSearch(arr,15);
-        int a = 20, b= 10;
+        int a = 20, b= 10, c= 25;
         System.out.println("Index of number 15 in array is : "+ res);
         System.out.println("First occurrence of number "+ a+" in array is : "+ firstOccurence(arr1,a));
         System.out.println("First occurrence of number "+ b+" in array is : "+ firstOccurenceOptimized(arr3,b));
         System.out.println("last occurrence of number "+ a+" in array is : "+ lastOccurrenceOptimized(arr1,a));
         System.out.println("Count occurrence of number "+ a +" in array is : "+ countOccurrenceOptimized(arr1,a));
         System.out.println("Count 1 in array is : "+ count1inSortedArray(arr4));
+        System.out.println("Square root of "+c+" is : " + squareRoot(c));
     }
 
     public static int bSearch(int[] arr, int num) {
@@ -107,5 +108,23 @@ public class BinarySearch {
         }
         return -1;
     }
+
+    public static int squareRoot(int n) {
+        int high = n, low =0, ans = -1;
+        while(low<=high){
+            int  mid = (high + low)/2;
+            int mySq = mid * mid;
+            if(mySq == n)
+                return mid;
+            else if (mySq > n) {
+                high = mid -1;
+            } else {
+                low = mid + 1;
+                ans = mid;
+            }
+        }
+        return ans;
+    }
+
 
 }
