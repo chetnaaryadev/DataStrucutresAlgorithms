@@ -7,6 +7,7 @@ public class BinarySearch {
         int[] arr1 = {10, 15, 15,18, 20, 20,20};
         int[] arr3 = {10, 10,10};
         int[] arr4 = {0, 0, 0,1, 1, 1,1};
+        int[] arr5 = {1,10, 15, 20,40, 60, 80,100,200,500,1000, 1100, 1250,1270};
         int res = bSearch(arr,15);
         int a = 20, b= 10, c= 25;
         System.out.println("Index of number 15 in array is : "+ res);
@@ -16,6 +17,7 @@ public class BinarySearch {
         System.out.println("Count occurrence of number "+ a +" in array is : "+ countOccurrenceOptimized(arr1,a));
         System.out.println("Count 1 in array is : "+ count1inSortedArray(arr4));
         System.out.println("Square root of "+c+" is : " + squareRoot(c));
+        System.out.println("Index of 100 in a assumed infinite array is : " + searchInInfiniteSizedArray(arr5,100));
     }
 
     public static int bSearch(int[] arr, int num) {
@@ -124,6 +126,33 @@ public class BinarySearch {
             }
         }
         return ans;
+    }
+
+    public static int searchInInfiniteSizedArray(int[] arr,int n) {
+        if (arr[0] == n)
+            return 0;
+        int i =1;
+        while(arr[i]<n){
+            i = i*2;
+        }
+        if(arr[i] == n)
+            return i;
+        return binarySearch(arr,n,i/2 + 1, i-1);
+    }
+
+    public static int binarySearch(int[] arr, int num,int low, int high) {
+        int n = arr.length;
+        int mid = 0;
+        while(low<=high){
+            mid = (high + low)/2;
+            if(arr[mid] == num)
+                return mid;
+            else if(arr[mid]> num)
+                high = mid -1;
+            else if(arr[mid]< num)
+                low = mid+1;
+        }
+        return mid;
     }
 
 
