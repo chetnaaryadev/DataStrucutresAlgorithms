@@ -9,6 +9,7 @@ public class BinarySearch {
         int[] arr4 = {0, 0, 0,1, 1, 1,1};
         int[] arr5 = {1,10, 15, 20,40, 60, 80,100,200,500,1000, 1100, 1250,1270};
         int[] arr6 = {10, 15, 18, 20, 30,5,7,9};
+        int[] arr7 = {5,7,9,10, 15, 18, 20, 30};
         int res = bSearch(arr,15);
         int a = 20, b= 10, c= 25;
         System.out.println("Index of number 15 in array is : "+ res);
@@ -20,6 +21,7 @@ public class BinarySearch {
         System.out.println("Square root of "+c+" is : " + squareRoot(c));
         System.out.println("Index of 100 in a assumed infinite array is : " + searchInInfiniteSizedArray(arr5,100));
         System.out.println("index of 7 in rotated sorted array is : " + binarySearchInRotatedSortedArray(arr6,7));
+        System.out.println("Is sum of two number equivalent to 21 present in the array - "+ twoSumInSortedArray(arr7, 24));
     }
 
     public static int bSearch(int[] arr, int num) {
@@ -181,6 +183,23 @@ public class BinarySearch {
         }
         return -1;
     }
+
+    public static boolean twoSumInSortedArray(int[] arr, int num) {
+        int n = arr.length;
+        int low =0, high = n-1;
+        while(low<=high){
+            if(arr[low] + arr[high] == num)
+                return true;
+            if(arr[low] + arr[high] < num){
+               low++;
+            }
+            else {
+                high--;
+            }
+        }
+        return false;
+    }
+
 
 
 }
