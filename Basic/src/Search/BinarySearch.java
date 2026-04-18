@@ -22,6 +22,7 @@ public class BinarySearch {
         System.out.println("Index of 100 in a assumed infinite array is : " + searchInInfiniteSizedArray(arr5,100));
         System.out.println("index of 7 in rotated sorted array is : " + binarySearchInRotatedSortedArray(arr6,7));
         System.out.println("Is sum of two number equivalent to 21 present in the array - "+ twoSumInSortedArray(arr7, 24));
+        System.out.println("Is sum of three number equivalent to 30 present in the array - "+ threeSumInSortedArray(arr7, 40));
     }
 
     public static int bSearch(int[] arr, int num) {
@@ -196,6 +197,29 @@ public class BinarySearch {
             else {
                 high--;
             }
+        }
+        return false;
+    }
+
+    public static boolean isPair(int[] arr, int sum, int i) {
+        int low =i, high = arr.length-1;
+        while(low< high){
+            if(arr[low] + arr[high] == sum)
+                return true;
+            if(arr[low] + arr[high] < sum){
+                low++;
+            }
+            else {
+                high--;
+            }
+        }
+        return false;
+    }
+
+    public static boolean threeSumInSortedArray(int[] arr, int num) {
+        for(int i=0;i< arr.length - 2;i++){
+            if (isPair(arr,num-arr[i],i+1))
+                return true;
         }
         return false;
     }
