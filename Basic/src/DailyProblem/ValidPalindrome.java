@@ -27,6 +27,7 @@ public class ValidPalindrome {
 
        return true;
 }
+
     private static String modifyString(String s) {
         //return s.trim().toLowerCase();
         StringBuilder mod = new StringBuilder();
@@ -40,6 +41,17 @@ public class ValidPalindrome {
             mod.append(c);
         }
         return mod.toString().toLowerCase();
+    }
+
+    private static String modifyString1(String s) {
+        StringBuilder mod = new StringBuilder();
+        for (char c : s.toCharArray()) {
+            if (Character.isLetterOrDigit(c)) {
+                mod.append(Character.toLowerCase(c));
+            }
+
+        }
+        return mod.toString();
     }
 
     public static boolean isPalindromeOptimal(String s) {
